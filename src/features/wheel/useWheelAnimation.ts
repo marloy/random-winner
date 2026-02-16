@@ -29,7 +29,7 @@ export const useWheelAnimation = () => {
       onComplete: () => {
         if (reelRef.current) {
           gsap.set(reelRef.current, {
-            y: -(winnerIndex - centerOffset) * ITEM_HEIGHT,
+            y: -(winnerIndex - centerOffset + participants.length) * ITEM_HEIGHT,
           });
         }
 

@@ -1,8 +1,8 @@
-import {memo, useEffect} from "react";
+import {useEffect} from "react";
 import { useWheelAnimation } from "./useWheelAnimation";
 import styles from "./Wheel.module.css";
 
-const WheelScreen = memo(() => {
+const WheelScreen = () => {
   const { spin, reelRef, list, winner, isSpinning } = useWheelAnimation();
 
   useEffect(() => {
@@ -36,6 +36,6 @@ const WheelScreen = memo(() => {
       </button>
     </div>
   );
-});
+};
 
 export default WheelScreen;
