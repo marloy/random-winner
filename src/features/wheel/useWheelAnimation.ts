@@ -41,9 +41,8 @@ export const useWheelAnimation = () => {
 
     tl.to(reelRef.current, {
       y: finalY,
-      duration: 15,
-      ease: "power2.inOut",
-      yoyoEase: true,
+      duration: 10,
+      ease: "power4.inOut"
     });
   }, [dispatch, participants]);
 

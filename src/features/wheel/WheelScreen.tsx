@@ -1,17 +1,8 @@
-import {useEffect} from "react";
 import { useWheelAnimation } from "./useWheelAnimation";
 import styles from "./Wheel.module.css";
 
 const WheelScreen = () => {
   const { spin, reelRef, list, winner, isSpinning } = useWheelAnimation();
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      spin()
-    }, 300)
-
-    return () => clearTimeout(timeout)
-  }, [spin]);
 
   return (
     <div className={styles.fullscreen}>
