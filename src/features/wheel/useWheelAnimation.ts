@@ -46,9 +46,7 @@ export const useWheelAnimation = () => {
     });
   }, [dispatch, participants]);
 
-  const list = Array(EXTRA_SPINS + VISIBLE_ITEMS)
-    .fill(participants)
-    .flat();
+  const list = Array(EXTRA_SPINS + VISIBLE_ITEMS).fill(participants).flat();
 
   return {
     spin,
