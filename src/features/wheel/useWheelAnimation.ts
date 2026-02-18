@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import type { AppDispatch, RootState } from "../../app/store.ts";
 import { setWinner, startSpin } from "../../slices/wheelSlice.ts";
 import { EXTRA_SPINS, ITEM_HEIGHT, VISIBLE_ITEMS } from "./constants.ts";
+import confetti from "canvas-confetti";
 
 export const useWheelAnimation = () => {
   const { participants, winner, isSpinning } = useSelector((state: RootState) => ({
@@ -35,6 +36,7 @@ export const useWheelAnimation = () => {
 
         setTimeout(() => {
           dispatch(setWinner(participants[winnerIndex]));
+          confettiShot();
         })
       },
     });
@@ -56,3 +58,23 @@ export const useWheelAnimation = () => {
     isSpinning
   };
 };
+
+function confettiShot() {
+  confetti({
+    particleCount: 100,
+    angle: 50,
+    spread: 70,
+    origin: { x: 0, y: 0.8 },
+    ticks: 150,
+    startVelocity: 80,
+  });
+
+  confetti({
+    particleCount: 100,
+    angle: 130,
+    spread: 70,
+    origin: { x: 1, y: 0.8 },
+    ticks: 150,
+    startVelocity: 80,
+  });
+}

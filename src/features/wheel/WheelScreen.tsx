@@ -6,7 +6,7 @@ const WheelScreen = () => {
 
   return (
     <div className={styles.fullscreen}>
-      <div className={styles.viewport}>
+      <div className={`${styles.viewport} ${isSpinning ? styles.shiftDown : ''}`}>
         <div className={styles.list} ref={reelRef}>
           {list.map((name, idx) => (
             <div
@@ -22,6 +22,7 @@ const WheelScreen = () => {
       <button
         disabled={isSpinning}
         onClick={spin}
+        className={`${isSpinning ? styles.hide : ''}`}
       >
         Вращать барабан!
       </button>
