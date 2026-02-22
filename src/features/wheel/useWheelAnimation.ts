@@ -1,4 +1,4 @@
-import {useCallback, useRef} from "react";
+import { useCallback, useRef } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { gsap } from "gsap";
 import type { AppDispatch, RootState } from "../../app/store.ts";
@@ -21,7 +21,7 @@ export const useWheelAnimation = () => {
 
     dispatch(startSpin());
 
-    const winnerIndex = Math.floor(Math.random() * participants.length);
+    const winnerIndex = getSecureRandomIndex(participants.length);
     const centerOffset = Math.floor(VISIBLE_ITEMS / 2);
     const totalItems = participants.length * EXTRA_SPINS + winnerIndex;
     const finalY = -(totalItems - centerOffset) * ITEM_HEIGHT;
@@ -58,6 +58,12 @@ export const useWheelAnimation = () => {
     isSpinning
   };
 };
+
+function getSecureRandomIndex(max: number) {
+  const arr = new Uint32Array(1);
+  crypto.getRandomValues(arr);
+  return arr[0] % max;
+}
 
 function confettiShot() {
   confetti({
