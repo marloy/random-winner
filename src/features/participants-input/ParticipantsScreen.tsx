@@ -32,7 +32,7 @@ export default function ParticipantsScreen() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button onClick={handleStart}>Вращать барабан!</button>
+        <button onClick={handleStart}>Далее</button>
       </div>
     </div>
   );
